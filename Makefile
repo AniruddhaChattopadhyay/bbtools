@@ -13,9 +13,9 @@ extract:
 
 checking_installation:
 		@echo "checking go version"
-		go version
+		/usr/local/go/bin/go version
 
-install_bbtools:
+install_bbtools:	
 		@echo "checking go version"
 		/usr/local/go/bin/go install
 clean:
