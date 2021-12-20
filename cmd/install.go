@@ -44,11 +44,25 @@ func checkDocker() {
 	fmt.Println(string(colorGreen), "Building docker image. Please wait")
 	buildDocker()
 	fmt.Println(string(colorGreen), "Docker build is complete.")
+	fmt.Println(string(colorGreen), "remove any docker container with name registry")
+	removeDocker()
 	pushDockerToLocalRegistry()
 	fmt.Println(string(colorGreen), "Docker pushed to local registry")
 	fmt.Println(string(colorGreen), "Now you can run : bbtools greet <Greeting> <Your_Name>")
 
 }
+
+func removeDocker() {
+	cmd := exec.Command("docker", "rm", "-f", "registry")
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		fmt.Println(fmt.Sprint(err) + ": " + string(output))
+		return
+	}
+	fmt.Println(string(output))
+
+}
+
 func dockerPull() {
 	// colorGreen := "\033[32m"
 	colorRed := "\033[31m"
