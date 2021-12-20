@@ -1,0 +1,4 @@
+{
+    "files":["hello.R"],
+    "Args":["hello.R", "--args", "hello","you"]
+}
