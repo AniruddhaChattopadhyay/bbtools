@@ -17,7 +17,6 @@ The directory structure looks like
 Assuming you are on linux execute the command
 
 ```bash
-chmod +x bbtools
 ./bbtools
 ```
 
@@ -57,9 +56,9 @@ I have also created a Makefile that installs and add the go to path for linux.
 make
 ```
 
-This installs go and then runs go install to create the binary which is automatically added to path.
+This installs go and then runs go install to create the binary which is located in ~/go/bin.
 
-Now we can be in any directory and use bbtools. (like run bbtools greet hello ron)
+Now we can be in any directory and use bbtools. (like run ~/go/bin/bbtools greet hello ron)
 
 3) In ubuntu we can use snap to install go.
 
@@ -87,6 +86,29 @@ bbtools greet hello ron
 ```
 
 We can run bbtools from any directory once go install has been run. We don’t necessarily need to be inside bbtools directory.
+
+**NOTE:** If go aur bbtools are not running due to command not found error there are two ways to resolve this.
+
+```bash
+cd bbtools
+usr/local/go/bin/go install
+~/go/bin/bbtools install
+~/go/bin/bbtools bbtools greet hello ron
+```
+
+OR add path to ~/.profile like (gedit ~/.profile)
+
+```bash
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/zeedx/go/bin
+```
+
+then run source and the go and bbtools should work without having to give their paths.
+
+```bash
+source ~/.profile
+go version
+```
 
 ## Task 2: Building nanovm using ops to run a R script
 
@@ -117,5 +139,6 @@ Thus we get the desired output
 I was ideally supposed to pull the docker image from local registry and then run the hello.R using that but despite trying several different base images that didn’t happen. I also spoke to the main collaborator and creater and CEO of nanovms and he said that there is an issue with Rscript specifically that deters the run of a R script using the Rscript command. I am attaching everything I did in the page below.
 
 [ops from docker](https://dot-diplodocus-01b.notion.site/ops-from-docker-f8059a27626149f9a25da179c8481295)
+
 
 [view the readme in notion](https://dot-diplodocus-01b.notion.site/BlueBeak-Installation-Guide-c2e6157e23cb4cc5875c412b3a686372)

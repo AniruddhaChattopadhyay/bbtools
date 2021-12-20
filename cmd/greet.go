@@ -6,8 +6,10 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
+	"os"
 	"os/exec"
+
+	"github.com/spf13/cobra"
 )
 
 // greetCmd represents the greet command
@@ -18,12 +20,16 @@ var greetCmd = &cobra.Command{
 	Example : bbtools greet hello John
 	Output  : [1] "hello John"   `,
 	Run: func(cmd *cobra.Command, args []string) {
-		// fmt.Println(args[0])
 		callDocker(args)
 	},
 }
 
 func callDocker(args []string) {
+	colorRed := "\033[31m"
+	if len(args) != 2 {
+		fmt.Println(string(colorRed), "please provide 2 arguments with bbtools greet like bbtools greet hello Ron")
+		os.Exit(1)
+	}
 	cmd := exec.Command("docker", "run", "curious98/mini-r", "Rscript", "hello.R", args[0], args[1])
 	output, err := cmd.CombinedOutput()
 	if err != nil {
