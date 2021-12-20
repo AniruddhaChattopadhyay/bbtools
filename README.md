@@ -17,6 +17,7 @@ The directory structure looks like
 Assuming you are on linux execute the command
 
 ```bash
+chmod +x bbtools
 ./bbtools
 ```
 
@@ -115,4 +116,6 @@ Thus we get the desired output
 
 I was ideally supposed to pull the docker image from local registry and then run the hello.R using that but despite trying several different base images that didn’t happen. I also spoke to the main collaborator and creater and CEO of nanovms and he said that there is an issue with Rscript specifically that deters the run of a R script using the Rscript command. I am attaching everything I did in the page below.
 
-[ops from docker](https://www.notion.so/ops-from-docker-f8059a27626149f9a25da179c8481295)
+[ops from docker](https://dot-diplodocus-01b.notion.site/ops-from-docker-f8059a27626149f9a25da179c8481295)
+
+[view the readme in notion](https://dot-diplodocus-01b.notion.site/BlueBeak-Installation-Guide-c2e6157e23cb4cc5875c412b3a686372)
